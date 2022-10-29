@@ -48,7 +48,7 @@ namespace Tic_Tac_Toe{
             bool isPlaying;
             bool isRunning = true;
             bool hasAnswered;
-            string player;
+            string currentPlayer;
             short choice;
             string query;
             List<short> checks = new List<short>();
@@ -76,19 +76,19 @@ namespace Tic_Tac_Toe{
 
                 while (isPlaying){
                     if (Xturn){
-                        player = "X";
+                        currentPlayer = "X";
                     }
                     else{
-                        player = "O";
+                        currentPlayer = "O";
                     }
                     
                     drawBoard(board);
-                    Console.WriteLine($"{player} turn! Select a cell: ");
+                    Console.WriteLine($"{currentPlayer} turn! Select a cell: ");
                     choice = Convert.ToInt16(Console.ReadLine());
                     choice--;
                     if (choice >= 0 && choice < 9){
                         if (board[choice] != "X" && board[choice] != "O"){
-                            board[choice] = player;
+                            board[choice] = currentPlayer;
                             if (Xturn){
                                 Xturn = false;
                             }
